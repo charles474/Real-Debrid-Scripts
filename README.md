@@ -17,3 +17,14 @@ Change `path/to/symlinks` to the parent media (plex) folder where all your symli
 
 # Zurgupdate
 - Stops all containers accessing zurg, cd into zurg directory, compose zurg down, prunes unused images, prunes unused volume data, docker compose up -d, waits 60seconds and then starts the stopped containers.
+
+# Brokensymlink
+- Change the directories to match your ones.
+- Run first with `dryrun = True`
+- Test to see if the symlinks listed are truly broken
+- Change Dryrun config to `False`
+- Rune the script again
+
+# Import
+- This is used to work with usenet-drive, to create a symlink on import from `/mnt/remote/usenet/{Media}` to `/mnt/plex/{Media}`
+- this also respects realdebrid symlinks found in `/mnt/symlinks/{Media}` and moves them to `/mnt/plex/{Media}`
