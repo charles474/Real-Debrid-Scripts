@@ -22,7 +22,7 @@ Change `path/to/symlinks` to the parent media (plex) folder where all your symli
 - Change the directories to match your ones.
 - Run first with `dryrun = True`
 - Test to see if the symlinks listed are truly broken
-- Change Dryrun config to `False`
+- Change dryrun config to `False`
 - Rune the script again
 
 # Import
