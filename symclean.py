@@ -29,7 +29,6 @@ def main():
 
     # If arguments are not provided, enter interactive mode
     if not args.directory or not args.old_path or not args.new_path:
-        print("Entering interactive mode. Please provide the following details:")
         directory = input("Directory to search for symlinks: ").strip()
         old_path = input("Old mount path to be replaced: ").strip()
         new_path = input("New mount path to replace with: ").strip()
