@@ -1,5 +1,7 @@
 import os
 import argparse
+import threading
+import time
 
 # Define the function to update symlinks
 def update_symlinks(directory, old_path, new_path, dry_run):
@@ -16,6 +18,15 @@ def update_symlinks(directory, old_path, new_path, dry_run):
                         print(f"Updated symlink: {link_target} -> {updated_target}")
                     else:
                         print(f"Would update symlink: {link_target} -> {updated_target}")
+
+# Function to display a loading spinner
+def spinner(message):
+    symbols = ['|', '/', '-', '\\']
+    idx = 0
+    while True:
+        print(f"\r{message} {symbols[idx % len(symbols)]}", end='', flush=True)
+        idx += 1
+        time.sleep(0.1)
 
 # Set up argument parsing
 def main():
@@ -39,8 +50,17 @@ def main():
         new_path = args.new_path
         dry_run = args.dry_run
 
+    # Print the message and start the spinner in a separate thread
+    print("Changing your symlink paths", end=' ')
+    spinner_thread = threading.Thread(target=spinner, args=("Changing your symlink paths",))
+    spinner_thread.daemon = True
+    spinner_thread.start()
+
     # Call the function with the collected or provided arguments
     update_symlinks(directory, old_path, new_path, dry_run)
+
+    # Stop the spinner after the update process is complete
+    print("\rSymlink paths have been updated.    ")
 
 if __name__ == "__main__":
     main()
