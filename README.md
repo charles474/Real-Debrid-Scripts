@@ -8,6 +8,17 @@ Change `path/to/debrid/mount` to the parent folder where all your links/symlinks
 
 Change `path/to/symlinks` to the parent media (plex) folder where all your symlinks are.
 
+###### Usage
+To run without deleting torrents
+```bash
+python3 discard.py --dry-run
+```
+
+To run deleting torrents
+```bash
+python3 discard.py
+```
+
 # Symclean
 - rewrites symlinks if some were made using the old volume mapping method (/mount/torrents) to the new volume mapping method (/mnt/remote/realdebrid)
 - read the code and make the neccessary changes as per needed for your use case.
