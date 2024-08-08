@@ -16,7 +16,7 @@ python3 discard.py --dry-run
 
 To run deleting torrents
 ```bash
-python3 discard.py
+python3 discard.py --no-confirm
 ```
 
 # Symclean
