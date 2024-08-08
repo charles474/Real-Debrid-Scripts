@@ -12,6 +12,17 @@ Change `path/to/symlinks` to the parent media (plex) folder where all your symli
 - rewrites symlinks if some were made using the old volume mapping method (/mount/torrents) to the new volume mapping method (/mnt/remote/realdebrid)
 - read the code and make the neccessary changes as per needed for your use case.
 
+###### Usage
+To run without updating symlink paths
+```bash
+python3 symclean.py [--dry-run] [directory] [old_path] [new_path]
+```
+
+To run updating symlink paths
+```bash
+python3 symclean.py [directory] [old_path] [new_path]
+```
+
 # Start/Stop/Restart
 - does the action for all the containers that access Zurg in case of failed order of start where zurg/rclone starts after the other containers on a reboot.
 
