@@ -34,6 +34,11 @@ To run updating symlink paths
 python3 symclean.py [directory] [old_path] [new_path]
 ```
 
+i.e.
+```bash
+python3 symclean.py /mnt/plex /mnt/remote/realdebrid/torrents /mnt/remote/realdebrid/__all__
+```
+
 # Start/Stop/Restart
 - does the action for all the containers that access Zurg in case of failed order of start where zurg/rclone starts after the other containers on a reboot.
 
