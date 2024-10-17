@@ -2,6 +2,7 @@ import os
 import argparse
 import shutil
 import traceback
+import sys
 
 def find_non_linked_files(src_folder, dst_folder, dry_run=False, no_confirm=False):
     # Get the list of links in the dst_folder
@@ -45,6 +46,7 @@ def find_non_linked_files(src_folder, dst_folder, dry_run=False, no_confirm=Fals
         
     print(f"Finished.")
     print(f"")
+    sys.exit(0)
 
 if __name__ == '__main__':
     src_folder = "/mnt/remote/realdebrid/__all__" #location of your debrid mount
