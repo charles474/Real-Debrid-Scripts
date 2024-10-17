@@ -33,7 +33,7 @@ def find_non_linked_files(src_folder, dst_folder, dry_run=False, no_confirm=Fals
                     try:
                         for root, dirs, files in os.walk(root):
                             for f in files:
-                               os.unlink(os.path.join(root, f))
+                                os.unlink(os.path.join(root, f))
                             for d in dirs:
                                 shutil.rmtree(os.path.join(root, d))
                         print(f"Directory {subdirectory} deleted!")
@@ -42,6 +42,9 @@ def find_non_linked_files(src_folder, dst_folder, dry_run=False, no_confirm=Fals
                         print(traceback.format_exc())
                 else:
                     print(f"Directory {subdirectory} not deleted!")
+        
+    print(f"Finished.")
+    print(f"")
 
 if __name__ == '__main__':
     src_folder = "/mnt/remote/realdebrid/__all__" #location of your debrid mount
@@ -50,4 +53,5 @@ if __name__ == '__main__':
     parser.add_argument('--dry-run', action='store_true', help='print non-linked file directories without deleting')
     parser.add_argument('--no-confirm', action='store_true', help='delete non-linked file directories without confirmation')
     args = parser.parse_args()
+    print(f"Starting...")
     find_non_linked_files(src_folder, dst_folder, dry_run=args.dry_run, no_confirm=args.no_confirm)

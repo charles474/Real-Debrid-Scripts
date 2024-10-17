@@ -1,0 +1,24 @@
+---
+services:
+  debrid_cleanup:
+    build: .
+    container_name: debrid_cleanup
+    labels:
+      autoheal-app: true
+    environment:
+      - PUID=1000
+      - PGID=1000
+      - TZ=Europe/London
+    volumes:
+      - ./healthcheck:/healthcheck
+      - /data:/data
+      - /mnt:/mnt:rslave
+    restart: unless-stopped
+    command: "python3 discard.py --no-confirm"
+    # command: "python3 discard.py --dry-run"
+    healthcheck:
+      test: /bin/bash "/healthcheck/healthcheck.sh"
+      interval: 120s
+      retries: 1
+      start_period: 60s
+      timeout: 15s
