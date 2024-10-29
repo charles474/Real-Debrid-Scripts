@@ -11,7 +11,7 @@ services:
       - TZ=Europe/London
     volumes:
       - ./healthcheck:/healthcheck
-      - /data:/data
+      - /data:/data:rslave
       - /mnt:/mnt:rslave
     restart: on-failure:2
     command: "python3 discard.py --no-confirm"
