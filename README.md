@@ -36,7 +36,7 @@ python3 symclean.py [directory] [old_path] [new_path]
 
 i.e.
 ```bash
-python3 symclean.py /mnt/plex /mnt/remote/realdebrid/torrents /mnt/remote/realdebrid/__all__
+python3 symclean.py /mnt/plex /mnt/remote/realdebrid/torrents /mnt/remote/realdebrid/torrents
 ```
 
 # Start/Stop/Restart
