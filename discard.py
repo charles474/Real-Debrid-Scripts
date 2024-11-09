@@ -5,6 +5,12 @@ import traceback
 import sys
 
 def find_non_linked_files(src_folder, dst_folder, dry_run=False, no_confirm=False):
+    if len([name for name in os.listdir(src_folder) if os.path.isdir(os.path.join(src_folder, name))]) <= 0:
+        print(f"Debrid mount '{src_folder}' is missing")
+        print("Cancelling action!")
+        print(f"")
+        sys.exit(0)
+
     # Get the list of links in the dst_folder
     dst_links = set()
     for root, dirs, files in os.walk(dst_folder):
