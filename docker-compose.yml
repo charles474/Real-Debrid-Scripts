@@ -4,7 +4,6 @@ services:
     build: .
     container_name: debrid_cleanup
     labels:
-      com.docker-tc.enabled: 0
       autoheal-app: true
     environment:
       - PUID=1000
