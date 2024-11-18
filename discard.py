@@ -5,6 +5,7 @@ import traceback
 import sys
 
 def find_non_linked_files(src_folder, dst_folder, dry_run=False, no_confirm=False):
+    # TODO: Implement checking if real debrid api is down
     if len([name for name in os.listdir(src_folder) if os.path.isdir(os.path.join(src_folder, name))]) <= 0:
         print(f"Debrid mount '{src_folder}' is missing")
         print("Cancelling action!")
